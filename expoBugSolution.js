@@ -1,0 +1,8 @@
+The issue is generally resolved by meticulously verifying the installation and configuration of `@expo/vector-icons`.  First, ensure that the package is correctly installed and linked: `expo install @expo/vector-icons`.
+
+Double-check your app's manifest (`app.json` or `app.config.js`).  There might be a problem with the assets section. Ensure that it includes the necessary font files that should be copied to the app bundle, if the problem persists try these steps:
+
+1. **Clean and Rebuild:** Perform a clean build by deleting the `node_modules` folder, `ios` and `android` folders and then reinstalling dependencies. After that run `expo prebuild` and then `expo run:android` or `expo run:ios`
+2. **Verify Font Files:** Make sure the font files required by the icons you are using are present and correctly referenced within your project. 
+3. **Manual Linking (If Necessary):** In rare cases, where automatic linking fails, manual linking of the font assets may be required. This usually involves adding the font files to the appropriate Android and iOS project directories and making adjustments to the native project files. Consult the documentation of the specific icon set used and the platform-specific setup guides.
+4. **Check Expo SDK Version:** Ensure you're using a compatible Expo SDK version with `@expo/vector-icons` package.  Check the package's documentation for compatibility information.
